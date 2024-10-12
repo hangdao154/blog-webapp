@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+
+<div id="home-banner">
+    <div class="left">
+        <h1>Welcome to<br>Hang Dao's blog!</h1>
+        <p>I'm an entry-level, amateur front-end developer. I share my daily life and work here.</p>
+    </div>
+    <div class="right">
+        <img src="/images/profile-pic.jpg" alt="A picture of Hang standing in front of a drawer.">
+    </div>
+</div>
+
+<section>
+    <h2>Recent Posts</h2>
+    <div class="posts-container">
+    <% if (locals.blogList) { %>
+        <% blogList.forEach((post) => { %>
+            <div class="post-item">
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <div class="manage-buttons">
+                    <a href="/post/<%= post.id %>"><button>Read</button></a>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,12 @@
+<%- include("partials/header.ejs") %>
+
+<h1 class="section-title">Edit Post</h1>
+<% if (locals.editingPost) { %>
+    <form action="/submit-change/<%= editingPost.id %>" method="POST">
+        <input class="input-field" name="title" type="text" placeholder="Add title" value="<%= editingPost.title %>">
+        <textarea name="content" placeholder="Add content"><%= editingPost.content.join("\n") %></textarea>
+        <input class="submit-btn" type="submit" value="SUBMIT">
+    </form>
+<% } %>
+
+<%- include("partials/footer.ejs") %>

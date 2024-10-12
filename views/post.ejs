@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+
+<% if (locals.post) { %>
+    <h1><%= post.title %></h1>
+    <p>Published in <%= post.createTime.getMonth() %>/<%= post.createTime.getDate() %>/<%= post.createTime.getFullYear() %></p>
+    <hr size="2" color="black">
+    <% post.content.forEach((paragraph) => { %>
+        <p><%= paragraph %></p>
+    <% }) %>
+<% } %>
+
+<% if (locals.loggedIn) { %>
+    <% if (loggedIn === true) { %>
+        <div class="manage-buttons">    
+            <a href="/edit/<%= post.id %>"><button>Edit</button></a>
+            <a href="/remove/<%= post.id %>"><button>Remove</button></a>
+        </div>
+    <% } %>
+<% } %>
+
+
+<%- include("partials/footer.ejs") %>

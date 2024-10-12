@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<h1 class="section-title">Dashboard</h1>
+
+<div class="posts-container">
+    <% if (locals.blogList) { %>
+        <% blogList.forEach((post) => { %>
+            <div class="post-item">
+                <h3><%= post.title %></h3>
+                <p><%= post.content[0] %></p>
+                <div class="manage-buttons">    
+                    <a href="/post/<%= post.id %>"><button>Read</button></a>
+                    <a href="/edit/<%= post.id %>"><button>Edit</button></a>
+                    <a href="/remove/<%= post.id %>"><button>Remove</button></a>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+
+    
+</div>
+
+<%- include("partials/footer.ejs") %>

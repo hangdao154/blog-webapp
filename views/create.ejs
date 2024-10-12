@@ -1,0 +1,10 @@
+<%- include("partials/header.ejs") %>
+
+<h1 class="section-title">Create New Post</h1>
+<form action="/submit" method="POST">
+    <input class="input-field" name="title" type="text" placeholder="Add title">
+    <textarea name="content" placeholder="Add content"></textarea>
+    <input class="submit-btn" type="submit" value="SUBMIT">
+</form>
+
+<%- include("partials/footer.ejs") %>
